@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Nota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="/gravarAlteracaoNota" method="post">
+        <div class="mb-3">
+            <input type="text" class="form-control" hidden="true" name="idNota" value="idNota">
+        </div>
+
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" name="nota1" class="form-control" value="{{ notas[3] }}" required>
+        
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" name="nota2" class="form-control" value="{{ notas[4] }}" required>
+        
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" name="nota3" class="form-control" value="{{ notas[5] }}" required>
+        
+        <label for="nota4">Nota 4:</label>
+        <input type="number" id="nota4" name="nota4" class="form-control" value="{{ notas[6] }}" required>
+        
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+</body>
+</html>

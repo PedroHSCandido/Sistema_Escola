@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <title>Cadastro de Disciplinas</title>
+
+    <style>
+        .input-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            width: 25rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    
+</head>
+<body class="container mt-5">
+    <div class="row">
+            <div class="col-md-6">
+                <form action="/registrarDisciplina" method="post">
+                    <div class="input-box">
+                        <div class="mb-3">
+                            <label for="nomeDisciplina" class="form-label">DISCIPLINA</label>
+                            <input type="text" class="form-control" name="nomeDisciplina" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="col-md-6">    
+                <table class="table table-hover">
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Ações</th>
+                        
+                    </tr>
+                    {% for disciplina in disciplinas %}
+                        <tr>
+                            <td> {% if disciplina[0] is not none %}
+                                    {{ disciplina[0] }}
+                                {% else %}
+                                    Vazio
+                                {% endif %}
+                            </td>
+                            
+                            <td> 
+                                <a href={{ url_for("excluirDisciplina", disciplina=disciplina[0])}} class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Excluir
+                                </a>
+                                <a href={{ url_for("editarDisciplina", disciplina=disciplina[0])}} class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                            </td>
+                        
+                            
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    </div>            
+</body>
+</html>
